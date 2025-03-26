@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template2</title>
+    <style>
+        #container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 20vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <button id="btn1">add</button>
+    <template id="temp">
+        <style>
+            #card {
+                display: flex;flex-direction: column;
+                justify-content: center;align-items: stretch;
+            }
+        </style>
+        <div id="card">
+            <h1>Name : <slot name='title'></slot></h1>
+            <p>Content : <slot name="content"></slot></p>
+            <button id="sub">submit</button>
+            <button id="can">cancel</button>
+        </div>
+    </template>
+
+    <script>
+        document.getElementById('btn1').addEventListener('click', function(){
+            // const container = document.getElementById('container');
+            // const template = document.getElementById('temp');
+            // container.append(temp.content.cloneNode(true));
+            const card1 = document.createElement('custom-elem');
+            const span1 = document.createElement('span');
+            span1.setAttribute("slot", "title");
+            span1.textContent = 'title111'
+            card1.append(span1);
+
+            const span2 = document.createElement('span');
+            span2.setAttribute('slot', 'content');
+            span2.textContent = 'content 11111'
+            card1.append(span2);
+
+            container.append(card1);
+        });
+
+        // id name 생성시 특수문자 사용하지 않는 것을 권장
+
+        class CustomElem extends HTMLElement {
+            connectedCallback(){
+                this.attachShadow({mode : "open"});
+                this.shadowRoot.append(temp.content.cloneNode(true));
+            }
+        }
+        customElements.define('custom-elem', CustomElem);
+    </script>
+</body>
+</html>

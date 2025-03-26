@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shadowDOM2</title>
+</head>
+<body>
+    <input type="range">
+    <div class="sample"></div>
+    <script>
+        document.querySelector('.sample').attachShadow({mode : "open"});
+        let h1 = document.createElement('h1');
+        h1.textContent = 'hello';
+        document.querySelector(".sample").shadowRoot.innerHTML = '<p>have a nice day</p>';
+        document.querySelector(".sample").shadowRoot.prepend(h1);
+        
+    </script>
+</body>
+</html>

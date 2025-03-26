@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery : handling4</title>
+    <script src="../library/jquery-3.7.1.min.js"></script>
+    <script>
+        $(() => {
+            $("h2").replaceWith("<h3>바뀐 메서드</h3>");
+            $("<p>Change</p>").replaceAll("div");
+            $("strong").unwrap(); // 부모 태그를 삭제
+            $(".ct1").wrap("<div />"); // 선택자의 부모를 생성 
+            $(".ct2").wrapAll("<div />") // 선택자와 그 형제의 부모를 생성
+            $(".ct3").wrapInner("<h3 />") // 선택자의 컨텐츠를 가진 자식을 생성
+
+        })
+    </script>
+    <style>
+        div {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2>제목</h2>
+        <div>내용1</div>
+        <div>내용2</div>
+    </section>
+    <section>
+        <h2>제목</h2>
+        <div>내용1</div>
+        <div>내용2</div>
+    </section>
+    <h1 id="title1"><strong>unwrapTag</strong></h1>
+    <p class="ct1">내용1</p>
+    <p class="ct1">내용1-2</p>
+    <p class="ct1">내용1-3</p>
+    <p class="ct2">내용2</p>
+    <p class="ct2">내용2-2</p>
+    <p class="ct2">내용2-3</p>
+    <p class="ct3">내용3</p>
+
+</body>
+</html>

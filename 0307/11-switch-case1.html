@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch-case1</title>
+</head>
+<body>
+    <input type="number" name="num1" id="num1">
+    <button id="btn">출력</button>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", function(){
+            var n = parseInt(document.getElementById("num1").value);
+
+            var result;
+
+            switch(n) {
+                case 1 : result = "입력값은 1입니다."; break;
+                case 2 : result = "입력값은 2입니다."; break;
+                case 3 : result = "입력값은 3입니다."; break;
+                case 4 : result = "입력값은 4입니다."; break;
+                
+                default : result = "해당되는 입력값이 없습니다.";
+            }
+            alert(result);
+
+        })
+
+        // Math.floor() 함수는 작거나 같은 정수값으로 반환
+      console.log(`${4.7} 내림 : ${Math.floor(4.7)}`); // 4
+      console.log(`${-4.7} 내림 : ${Math.floor(-4.7)}`); // -5
+      console.log(`${4.3} 내림 : ${Math.floor(4.3)}`); // 4
+      console.log(`${-4.3} 내림 : ${Math.floor(-4.3)}`); // -5
+    
+        // Math.trunc() 함수는 소수점 이하를 버림. 정수만 남김.
+      console.log(`${4.7} 버림 : ${Math.trunc(4.7)}`); //  4
+      console.log(`${-4.7} 버림 : ${Math.trunc(-4.7)}`); // -4
+      console.log(`${4.3} 버림 : ${Math.trunc(4.3)}`); // 4
+      console.log(`${-4.3} 버림 : ${Math.trunc(-4.3)}`); // -4
+    
+    </script>
+</body>
+</html>

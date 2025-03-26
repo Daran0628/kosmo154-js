@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery : effect1</title>
+    <script src="../library/jquery-3.7.1.min.js"></script>
+    <script>
+        $(() => {
+            $("#btn1").click(function(){
+                $(".box1").slideToggle(1000, "linear");
+            });
+            $("#btn2").click(function(){
+                $(".box2").fadeTo("fast", 0.1);
+            });
+            $("#btn3").click(function(){
+                $(".box2").fadeTo("fast", 1);
+            });
+            // $("#btn4").click(function(){
+            //     $(".box3").hide();
+            // });
+            // $("#btn5").click(function(){
+            //     $(".box3").show();
+            // });
+            $("#btn4").click(function(){
+                $(".box3").animate({
+                    opacity: 0}, 1000, "linear", function(){
+                        alert('감추기 성공');
+                    });
+            });
+            $("#btn5").click(function(){
+                $(".box3").animate({
+                    opacity: 1}, 1000, "linear", function(){
+                        alert('보여주기 성공');
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btn1">slide</button>
+    <div class="box1">
+        <p>content1</p>
+    </div>
+
+    <button id="btn2">fade-out</button>
+    <button id="btn3">fade-in</button>
+    <div class="box2">
+        <p>conctent2</p>
+    </div>
+
+    <button id="btn4">hide</button>
+    <button id="btn5">show</button>
+    <div class="box3">
+        <p>conctent3</p>
+    </div>
+</body>
+</html>

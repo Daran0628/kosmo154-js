@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>250213_homework</title>
+    <style>
+        #main-wrap {
+            padding: 3rem;
+            width: 500px;
+            display: flex;flex-direction: column;gap: 1rem;
+            .work-box {
+                display: flex;flex-direction: column;
+                align-items: center;justify-content: center;gap: 1rem;
+                width: auto;height: 200px;
+            }
+        }
+        .work-box.n5 {
+            justify-content: center;
+            background: lightblue;
+        }
+        .work-box.n5.active {
+            /* gap: 0 !important; */
+            background: red;
+            color: white;font-size: 2rem;font-weight: bold;
+            button {position: relative;top: -2rem;}
+        }
+        .toggle_btn {
+            user-select: none;
+            position: relative;
+            width: 10rem;height: 5rem;
+            border: 5px solid slategray;
+            border-radius: 4.5rem;
+            background: lightgray;
+            overflow: hidden;
+        }
+        .toggle_btn.on {
+            border-color: gray;
+            background: lightskyblue;
+        }
+        .inner_btn {
+            position: absolute;
+            transform: translateX(0%);
+            width: calc(5rem - 8px);height: calc(5rem - 8px);
+            background: darkgray;
+            border: 4px solid lightgray;
+            border-radius: 50%;
+            transition-duration: 0.5s;
+            transition-property: transform;
+        }
+        .inner_btn.on {
+            transform: translateX(100%);
+            border: 4px solid lightskyblue;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-wrap">
+        <div class="hw1">
+            <h2>문제1. 특정요소의 속성(attribute) 읽기</h2>
+            <div class="work-box">
+                <div id="myElement" data-info="Hello, World!"></div>
+            </div>
+        </div>
+        <div class="hw2">
+            <h2>문제2. 특정 요소의 속성(attribute) 수정하기</h2>
+            <div class="work-box">
+                <img id="image" width="150px" height="150px" src="./img/Frame_0.svg" alt="old image">
+                <button id="imgBtn">이미지 변경</button>
+            </div>
+        </div>
+        <div class="hw3">
+            <h2>문제3. 여러 요소에 공통 속성(attribute) 추가 </h2>
+            <div class="work-box" style="align-items: flex-start;">
+                <ul>
+                    <li class="item">li1</li>
+                    <li class="item">li2</li>
+                    <li class="item">li3</li>
+                    <li class="item">li4</li>
+                    <li class="item">li5</li>
+                </ul>
+            </div>
+        </div>
+        <div class="hw4">
+            <h2>문제4. 특정 속성(attribute) 삭제</h2>
+            <div class="work-box"></div>
+        </div>
+        <div class="hw5">
+            <h2>문제5. 클래스(classList.add) 추가</h2>
+            <div class="work-box n5">
+                <p id="pStatus">not activated</p>
+                <button id="actBtn">activate</button>
+            </div>
+        </div>
+        <div class="hw6">
+            <h2>문제6. 클래스(classList.remove) 제거</h2>
+            <div class="work-box">
+                <p id="message" class="notice inactive">안내 메시지</p>
+            </div>
+        </div>
+        <div class="hw7">
+            <h2>문제7. 클래스 토글 구현</h2>
+            <div class="work-box">
+                <div class="toggle_btn" id="myToggleBtn">
+                    <div class="inner_btn" id="myInnerBtn"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hw8">
+            <h2>문제8.</h2>
+            <div class="work-box"></div>
+        </div>
+        <div class="hw9">
+            <h2>문제9.</h2>
+            <div class="work-box"></div>
+        </div>
+        <div class="hw10">
+            <h2>문제10.</h2>
+            <div class="work-box"></div>
+        </div>
+        <div class="hw11">
+            <h2>문제11.</h2>
+            <div class="work-box"></div>
+        </div>
+        <div class="hw12">
+            <h2>문제12.</h2>
+            <div class="work-box"></div>
+        </div>
+        <div class="hw13">
+            <h2>문제13.</h2>
+            <div class="work-box"></div>
+        </div>
+        <div class="hw14">
+            <h2>문제14.</h2>
+            <div class="work-box"></div>
+        </div>
+        <div class="hw15">
+            <h2>문제15.</h2>
+            <div class="work-box"></div>
+        </div>
+    </div>
+    
+    <script>
+// 1. to select attribute and to get value, to use it
+
+    let dataInfo = document.getElementById('myElement').dataset.info;
+    console.log(dataInfo);
+
+// 2.  to select attribute and to get value, to edit it
+
+    let image = document.getElementById('image');
+    let imgBtn = document.getElementById('imgBtn');
+    let imgNum = 0;
+    
+    imgBtn.addEventListener('click', function(){
+        let picNum = (imgNum >= 20) ? imgNum = 0 : (imgNum == 0) ? imgNum : imgNum;
+
+        image.setAttribute('src', `./img/Frame_${picNum}.svg`);
+        imgNum++
+    });
+
+// 3. to add same attribute to multiful selectors
+
+    let items = document.querySelectorAll('.item');
+    
+    for(let i = 0; i <= 4; i++){
+        items[i].setAttribute('data-index', [i]);
+    }
+
+// 4. 
+
+// 5. adding class
+
+    let div5 = document.querySelector('.work-box.n5');
+    let actBtn = document.getElementById("actBtn");
+    let pStatus = document.getElementById('pStatus')
+    let flag5 = false;
+
+    actBtn.addEventListener('click', function(){
+        if(flag5){
+            div5.classList.remove('active');
+            pStatus.textContent = "not activated";
+            this.textContent = "activate";
+            flag5 = false;
+        }else{
+            div5.classList.add('active');
+            pStatus.textContent = "warnning!! activated!!";
+            this.textContent = "turn off";
+            flag5 = true;
+        }
+    })
+
+// 6. to remove class
+
+// 7. toggle ui
+
+    let toggleBtn = document.getElementById('myToggleBtn');
+    let innerBtn = document.getElementById('myInnerBtn');
+    let flagToggle = false;
+
+    innerBtn.addEventListener('click', function(){
+        if(flagToggle){
+            toggleBtn.classList.remove('on');
+            innerBtn.classList.remove('on');
+            flagToggle = false;
+        }else{
+            toggleBtn.classList.add('on');
+            innerBtn.classList.add('on');
+            flagToggle = true;
+        }
+    })
+    
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>250318_homework</title>
+    <style>
+        ul {list-style: none;}
+        .notShowing {display: none;}
+        .hw18-div p {display: inline-block;}
+        #parentDiv {
+            display: flex;gap: 1rem;justify-content: center;
+            padding: 1rem;
+            border: 3px solid salmon;}
+        .active {
+            font-size: 2.5rem;font-weight: bold;
+        }
+        .toggleHw8 {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main-wrap">
+        <div class="hw1">
+            <h2>Q1. 텍스트 내용 변경</h2>
+            <div class="sol-box hw1-div">
+                <div id="myText">원래 텍스트</div>
+                <button id="hw1Btn">텍스트 변경</button>
+            </div>
+        </div>
+        <div class="hw2">
+            <h2>Q2. 버튼 클릭시 배경색 변경</h2>
+            <div class="sol-box hw2-div">
+                <button id="changeColorBtn">배경색 변경</button>
+            </div>
+        </div>
+        <div class="hw3">
+            <h2>Q3. 리스트 항목 추가</h2>
+            <div class="sol-box hw3-div">
+                <ul id="myList">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                </ul>
+                <button id="addItemBtn">항목 추가</button>
+            </div>
+        </div>
+        <div class="hw4">
+            <h2>Q4. 입력값 실시간 반영</h2>
+            <div class="sol-box hw4-div">
+                <input type="text" id="textInput" placeholder="문자 입력">
+                <br>
+                <span id="displayText"></span>
+            </div>
+        </div>
+        <div class="hw5">
+            <h2>Q5. 요소 가시성 토글</h2>
+            <div class="sol-box hw5-div">
+                <div id="toggleElement" class="showing">보이거나 숨김</div>
+                <br>
+                <button id="toggleBtn">토글</button>
+            </div>
+        </div>
+        <div class="hw6">
+            <h2>Q6. 문단 스타일 일괄 변경</h2>
+            <div class="sol-box hw6-div">
+                <p class="hw6P">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis magnam vero ipsa similique reiciendis commodi veniam itaque delectus, perspiciatis esse, fugiat, corrupti iusto. Ipsam ducimus ea libero. Atque, iusto voluptatem.</p>
+                <p class="hw6P">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis magnam vero ipsa similique reiciendis commodi veniam itaque delectus, perspiciatis esse, fugiat, corrupti iusto. Ipsam ducimus ea libero. Atque, iusto voluptatem.</p>
+                <p class="hw6P">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis magnam vero ipsa similique reiciendis commodi veniam itaque delectus, perspiciatis esse, fugiat, corrupti iusto. Ipsam ducimus ea libero. Atque, iusto voluptatem.</p>
+                <p class="hw6P">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis magnam vero ipsa similique reiciendis commodi veniam itaque delectus, perspiciatis esse, fugiat, corrupti iusto. Ipsam ducimus ea libero. Atque, iusto voluptatem.</p>
+                <p class="hw6P">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis magnam vero ipsa similique reiciendis commodi veniam itaque delectus, perspiciatis esse, fugiat, corrupti iusto. Ipsam ducimus ea libero. Atque, iusto voluptatem.</p>
+            </div>
+            <button id="hw6Btn">모든 문단 글자색 변경</button>
+            <button id="hw6Cancel" style="display: none;">색 변경 취소</button>
+        </div>
+        <div class="hw7">
+            <h2>Q7. 특정 클래스 토글</h2>
+            <div class="sol-box hw7-div">
+                <div id="myDiv">내용</div>
+                <button id="toggleClassBtn">클래스 토글</button>
+            </div>
+        </div>
+        <div class="hw8">
+            <h2>Q8. 이벤트 위임 활용</h2>
+            <div class="sol-box hw8-div">
+                <ul id="parentList">
+                    <li>item 1</li>
+                    <li>item 2</li>
+                    <li>item 3</li>
+                    <li>item 4</li>
+                    <li>item 5</li>
+                </ul>
+            </div>
+        </div>
+        <div class="hw9">
+            <h2>Q9. 마우스오버로 이미지 변경</h2>
+            <div class="sol-box hw9-div">
+                <img id="myImage" src="./img/Frame_5.svg" alt="이미지">
+            </div>
+        </div>
+        <div class="hw10">
+            <h2>Q10. 폼 유효성 검사</h2>
+            <div class="sol-box hw10-div">
+                <form id="myForm">
+                    <input type="text" id="username" placeholder="이름입력">
+                    <button type="submit">제출</button>
+                </form>
+            </div>
+        </div>
+        <div class="hw11">
+            <h2>Q11. DOM 요소 복제</h2>
+            <div class="sol-box hw11-div">
+                <div id="sourceDiv">복제할 내용</div>
+                <div id="targetDiv"></div>
+                <button id="hw11copyBtn">요소 복제</button>
+            </div>
+        </div>
+        <div class="hw12">
+            <h2>Q12. 텍스트 길이 실시간 출력</h2>
+            <div class="sol-box hw12-div">
+                <input type="text" id="textInputHw12" placeholder="글자 입력">
+                <div id="charCount">0 글자</div>
+                <input type="checkbox" id="hw12Btn">
+                <label for="hw12Btn">띄어쓰기 미포함</label>
+                
+            </div>
+        </div>
+        <div class="hw13">
+            <h2>Q13. 동적 스타일 변경</h2>
+            <div class="sol-box hw13-div">
+                <div id="changeStyleDiv">스타일 변경 대상 텍스트</div>
+                <br>
+                <button id="growBtn">폰트 확대</button>
+                <button id="shrinkBtn">폰트 축소</button>
+            </div>
+        </div>
+        <div class="hw14">
+            <h2>Q14. 자식요소 갯수 확인</h2>
+            <div class="sol-box hw14-div">
+                <div id="parentDiv">
+                    <span>kid1</span><span>kid2</span><span>kid3</span><span>kid4</span><span>kid5</span>
+                    <span>kid6</span><span>kid7</span><span>kid8</span><span>kid9</span><span>kid10</span>
+                </div>
+                <br>
+                <button id="hw14Btn">자식수 확인</button>
+                <span id="kidsNum"></span>
+            </div>
+        </div>
+        <div class="hw15">
+            <h2>Q15. 더블 클릭 이벤트</h2>
+            <div class="sol-box hw15-div">
+                <div id="doubleClick">더블 클릭 시 텍스트 변경</div>
+            </div>
+        </div>
+        <div class="hw16">
+            <h2>Q16. 특정 요소 삭제</h2>
+            <div class="sol-box hw16-div">
+                <div id="itemToRemove">삭제할 요소</div>
+                <button id="removeButton">요소 삭제</button>
+            </div>
+        </div>
+        <div class="hw17">
+            <h2>Q17. 동적 하이퍼링크 추가</h2>
+            <div class="sol-box hw17-div">
+                <div id="linksDiv"></div>
+            </div>
+        </div>
+        <div class="hw18">
+            <h2>Q18. 데이터 속성 활용, 요소 스타일 변경</h2>
+            <div class="sol-box hw18-div">
+                <div id="dataContainer">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p data-type="special">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p data-type="special">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p data-type="special">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <button id="hw18Btn">highlight type="special"</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 1. modify text-contents
+        document.getElementById('hw1Btn').addEventListener('click', function () {
+            document.getElementById('myText').textContent = "Hello DOM!";
+        })
+
+        // 2. bg-color changing
+        const hw2Div = document.querySelector('.hw2-div');
+
+        document.getElementById('changeColorBtn').addEventListener('click', function () {
+            document.body.style.backgroundColor = "lightblue";
+            this.style.display = "none";
+
+            const cancelBtn = document.createElement('button')
+            cancelBtn.textContent = "변경 취소";
+
+            cancelBtn.addEventListener('click', function () {
+                document.body.style.backgroundColor = "white";
+                this.style.display = "none";
+                document.getElementById('changeColorBtn').style.display = "inline";
+            })
+            hw2Div.append(cancelBtn);
+
+        })
+
+        // 3. adding list
+        let hw3N = 3;
+
+        document.getElementById('addItemBtn').addEventListener('click', function(){
+            const newLi = document.createElement('li');
+            newLi.textContent = `New Item${hw3N++}`;
+
+            document.getElementById("myList").append(newLi);
+        })
+
+        // 4. input values synchronizing/binding
+            document.getElementById('textInput').addEventListener('input', function(){
+                const inputVal = this.value;
+
+                document.getElementById('displayText').textContent = inputVal;
+            })
+    
+        // 5. element's display toggle
+            document.getElementById('toggleBtn').addEventListener('click', function(){
+                document.getElementById('toggleElement').classList.toggle('notShowing');
+            })
+
+        // 6. querySellectorAll('')
+            const allP = document.querySelectorAll('.hw6P');
+            
+            document.getElementById('hw6Btn').addEventListener('click', function(){
+                const canBtn = document.getElementById('hw6Cancel');
+
+                canBtn.addEventListener('click', function(){
+                    canBtn.style.display = "none";
+
+                    allP.forEach(function(p){
+                    p.style.color = "black";
+                })
+                    document.getElementById('hw6Btn').style.display = "block";
+                })
+
+                allP.forEach(function(p){
+                    p.style.color = "red";
+                })
+                this.style.display = "none";
+                canBtn.style.display = "block"
+
+            })
+
+        // 7. class toggle
+            document.getElementById('toggleClassBtn').addEventListener('click', function(){
+                document.getElementById('myDiv').classList.toggle('active');
+            })
+
+        // 8. event passing
+            document.getElementById('parentList').addEventListener('click', function(e){
+                const li = e.target;
+                li.classList.toggle('toggleHw8');
+            })
+
+        // 9. mouseover / mouseout
+            document.getElementById('myImage').addEventListener('mouseover', function(){
+                    this.setAttribute('src', './img/Frame_15.svg');
+            });
+            document.getElementById('myImage').addEventListener('mouseout', function(){
+                    this.setAttribute('src', './img/Frame_5.svg');
+            });
+
+        // 10. checking input valiatioin
+            document.getElementById('myForm').addEventListener('submit', function(e){
+                e.preventDefault();
+                const inputVal = document.getElementById('username').value;
+
+                if(inputVal){
+                    console.log(inputVal);
+                }else {
+                    alert('이름을 입력해주세요.');
+                }
+            })
+
+        // 11. cloneNode(true)
+            document.getElementById("hw11copyBtn").addEventListener('click', function(){
+                const clnData = document.getElementById('sourceDiv').cloneNode(true);
+
+                document.getElementById('targetDiv').textContent = clnData.innerText;
+            })
+
+        // 12. string.length synchronizing/binding
+
+            document.getElementById('textInputHw12').addEventListener('input', function(){
+                const resDiv = document.getElementById('charCount');
+                const checkedBox = document.getElementById('hw12Btn').checked;
+
+                const actA = `${this.value.replace(" ", "").length} 글자`;
+                const actB = `${this.value.length} 글자`;
+    
+                checkedBox ? resDiv.textContent = actA : resDiv.textContent = actB;
+            })
+
+            document.getElementById('hw12Btn').addEventListener('click', function(){
+                document.getElementById('textInputHw12').value = "";
+                document.getElementById('charCount').textContent = `0 글자`;
+            })
+
+        // 13. font-size controlling
+        const hw13StyleDiv = document.getElementById('changeStyleDiv');
+        
+        document.getElementById('growBtn').addEventListener('click', function(){
+                const font = window.getComputedStyle(hw13StyleDiv).fontSize; // 16px
+                const regex = /[^0-9]/g;
+                const fontNum = font.replace(regex, "");
+
+                hw13StyleDiv.style.fontSize = `${fontNum * 2}px`;
+            })
+        document.getElementById('shrinkBtn').addEventListener('click', function(){
+                const font = window.getComputedStyle(hw13StyleDiv).fontSize; // 16px
+                const regex = /[^0-9]/g;
+                const fontNum = font.replace(regex, "");
+
+                hw13StyleDiv.style.fontSize = `${fontNum / 2}px`;
+            })
+
+        // 14. countting children 
+            document.getElementById('hw14Btn').addEventListener('click', function(){
+                const kidsNum = document.getElementById('parentDiv').children.length;
+                const spanParent = document.createElement('span');
+                spanParent.style.color = "coral";
+                spanParent.style.fontWeight = "bold" 
+                spanParent.innerText = "부모";
+                document.getElementById('kidsNum').textContent = `에게는 ${kidsNum}의 아이가 있었는데요~`;
+                document.getElementById('kidsNum').prepend(spanParent);
+
+
+                console.log(kidsNum);
+            })
+
+
+        // 15. dbl-clk event
+            document.getElementById('doubleClick').addEventListener('dblclick', function(){
+                this.textContent = "Double Clicked!";
+            })
+
+        // 16. remove() / removeChild()
+            document.getElementById('removeButton').addEventListener('click', function(){
+                const target = document.getElementById('itemToRemove');
+                target.remove();
+            })
+
+        // 17. adding hyper link
+            const aLink = document.createElement('a');
+            aLink.setAttribute('href', "https://www.example.com");
+            aLink.setAttribute('target', "_blank");
+            aLink.textContent = "Click Here";
+
+            document.getElementById('linksDiv').append(aLink);
+
+        // 18. data-set / style controlling
+            document.getElementById('hw18Btn').addEventListener('click', function(){
+                const specials = document.querySelectorAll(`[data-type="special"]`);
+
+                specials.forEach(function(special){
+                    special.style.backgroundColor = "lightyellow";
+                })
+            })
+    </script>
+</body>
+
+</html>

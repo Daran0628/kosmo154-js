@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class1</title>
+</head>
+<body>
+    <script>
+        // class Member{ // 클래스 선언
+        //     getName(){
+        //         return "신다란";
+        //     }
+        // };
+
+        // 클래스의 경우
+        // - 두 가지의 방식으로 선언이 가능하며 이 기능은 함수와 동일하다.
+        // 1. class 선언 방식
+        // 2. class 표현 방식 
+
+        // 클래스는 object 가 아님!
+
+
+        const Member = class { // 클래스 표현
+            getName(){
+                return "신다란";
+            }
+        }
+        const member1 = new Member();
+
+        console.log(member1.getName()); // 신다란
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom1</title>
+</head>
+<body>
+    <input type="text" name="txt1" id="txt2" class="txt2">
+    <button id="btn">클릭</button>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', function(){
+            // alert('버튼 눌러짐');
+            // var val1 = document.getElementsByName('txt1')[0].value;
+            // var val1 = document.getElementsByClassName('txt2')[0].value;
+            // var val1 = document.getElementsByTagName('input')[0].value;
+
+            // var val1 = document.getElementById('txt2').value;
+
+            // var val1 = document.querySelector('#txt2').value;
+            var val1 = document.querySelectorAll('.txt2')[0].value;
+
+            alert(val1);
+        })
+    </script>
+</body>
+</html>

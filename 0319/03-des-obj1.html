@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object destructuring1</title>
+</head>
+<body>
+    <script>
+        // 1. object spread 연산
+        // -> 삽입 연산
+        // const obj1 = {
+        //     a1 : 111,
+        //     b1 : "abc"
+        // };
+        // const obj1_2 = {...obj1, c1 : 345}
+        // console.log({...obj1, c1 : 345}); // 구조분해 할당 후 삽입 연산 후 새 객체 생성
+
+        // // 2. 부분 추출 1
+        // const obj2_1 = {
+        //     a1 : 123,
+        //     b1 : "abc"
+        // }
+        // let {a1, b1} = obj2_1;
+        
+        // console.log(`${a1} ${b1}`); // 123, abc
+
+        // // 3. 부분 추출 2
+        // const obj3_1 = {
+        //     aaa : 123,
+        //     bbb : "abc"
+        // };
+        // let {a1:aaa, b1:bbb} = obj2_1;
+
+        // console.log(`${aaa} ${bbb}`); // 123, abc
+
+        // // 4. 부분 추출 3
+        // const obj4_1 = {
+        //     a1 : 123,
+        //     b1 : "abc"
+        // }
+
+        // let a1, b1;
+        // ({a1, b1} = obj4_1);
+        // console.log(`${a1} ${b1}`); // 123, abc
+
+        // 5. 부분추출 4
+        // const obj5_1 = {
+        //     a1 : 123,
+        //     b1 : "abc",
+        //     c1 : {
+        //         c1_1 : 10,
+        //         c1_2 : "z"
+        //     }
+        // };
+
+        // let {a1, b1, c1 : {c1_1}} = obj5_1;
+        // // console.log(obj5_1);
+        // console.log(`${a1} ${b1} ${c1_1}`); // 123, abc, 10
+
+        // 6. 부분추출 5
+        // const obj6_1 = {
+        //     a1 : 123,
+        //     b1 : "abc",
+        //     c1 : {
+        //         c1_1 : 10,
+        //         c1_2 : "z"
+        //     }
+        // };
+
+        // let {a1, ...rest1} = obj6_1;
+        // console.log(a1); // 123
+        // console.dir(rest1); // {b1 : "abc", c1 : {c1_1 : 10, c1_2 : "z"}}
+
+        // 7. 요소 수정 1
+        // const obj7_1 = {
+        //     a1 : 123,
+        //     b1 : "abc"
+        // }
+        
+        // // obj7_1.a1 = 987; // -> 해당변수의 값이 변경되긴하나 주소가 변하지 않음 (권장 X)
+        // const obj7_2 = {...obj7_1, a1 : 987 };
+        
+        // console.log(obj7_1); // a1: 123, b1 : "abc"
+        // console.log(obj7_2); // a1: 987, b1 : "abc"
+        
+        // 8. 요소 삭제 1
+        const obj8_1 = {
+            a1 : 123,
+            b1 : "abc",
+            c1 : 456
+        }
+        
+        // delete obj8_1.a1; // -> 해당 객체가 삭제되긴하나 주소가 변하지 않음 (권장 X)
+
+        // const {a1, ...obj8_2} = obj8_1;
+        // console.dir(obj8_2); // {b1 : "abc", c1 : 456}
+
+        let {b1, c1} = obj8_1;
+        const obj8_2 = {b1, c1};
+        console.dir(obj8_2) // {b1 : "abc", c1 : 456}
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>250317_homework</title>
+    <style>
+        .hw1, .hw6 {
+            position: relative;
+        }
+        #hw1_liBtn, #hw6_removeBtn {
+            position: absolute;top: 70px;left: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-wrap">
+        <!-- .hw$*5>h2{문제$.} -->
+        <div class="hw1">
+            <h2>문제1. appendChild 이용 요소 추가</h2>
+            <div class="sol_box">
+                <ul id="hw1_list">
+                    <li>item1</li>
+                    <li>item2</li>
+                    <li>item3</li>
+                </ul>
+                <button id="hw1_liBtn">item 추가</button>
+            </div>
+        </div>
+        <div class="hw2">
+            <h2>문제2. prepend 이용 요소 추가</h2>
+            <div class="sol_box">
+                <div id="header">
+                    <button id="hw2_h1Btn">제목 추가</button>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam ut, eligendi ex enim mollitia commodi deserunt at incidunt tenetur laudantium quisquam libero! At quia, illo assumenda maiores cupiditate ipsam odio.</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam ut, eligendi ex enim mollitia commodi deserunt at incidunt tenetur laudantium quisquam libero! At quia, illo assumenda maiores cupiditate ipsam odio.</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam ut, eligendi ex enim mollitia commodi deserunt at incidunt tenetur laudantium quisquam libero! At quia, illo assumenda maiores cupiditate ipsam odio.</p>
+                </div>
+            </div>
+        </div>
+        <div class="hw3">
+            <h2>문제3. replaceWith 이용 요소 교체</h2>
+            <div class="sol_box">
+                <p id="paragraph">Hello, everygody!</p>
+                <button id="hw3_rpBtn">문장 교체하기</button>
+            </div>
+        </div>
+        <div class="hw4">
+            <h2>문제4. insertBefore 와 nextElementSibling 활용</h2>
+            <div class="sol_box">
+                <div id="containerHw4">
+                    <div id="middleHw4">Middle</div>
+                    <button id="hw4_inBfBtn">Middle 앞에 추가</button>
+                </div>
+            </div>
+        </div>
+        <div class="hw5">
+            <h2>문제5. cloneNode 와 appendChild 이용 요소 복제</h2>
+            <div class="sol_box">
+                <div id="original">Content</div>
+                <button id="hw5_cloneBtn">node 복붙</button>
+            </div>
+        </div>
+        <div class="hw6">
+            <h2>문제6. removeChild 이용 요소 삭제</h2>
+            <div class="sol_box">
+                <ul id="menu">
+                    <li>item1</li>
+                    <li>item2</li>
+                    <li>item3</li>
+                    <li>item4</li>
+                    <li>item5</li>
+                </ul>
+                <button id="hw6_removeBtn">둘째놈 삭제</button>
+            </div>
+        </div>
+        <div class="hw7">
+            <h2>문제7. after method 와 nextElementSibling 활용</h2>
+            <div class="sol_box">
+                <div id="contentHw7">
+                    <p id="textHw7">Text</p>
+                    <button id="hw7_afterBtn">text 뒤에 추가</button>
+                </div>
+            </div>
+        </div>
+        <div class="hw8">
+            <h2>문제8. before method 와 nextElementSiblinb 활용</h2>
+            <div class="sol_box">
+                <div class="note">note</div>
+                <button id="beforeHw8">note 앞에 추가</button>
+            </div>
+        </div>
+        <div class="hw9">
+            <h2>문제9.</h2>
+            <div class="sol_box"></div>
+        </div>
+        <div class="hw10">
+            <h2>문제10.</h2>
+            <div class="sol_box"></div>
+        </div>
+    </div>
+
+    <script>
+
+        // 1. appendChild
+        const ulList = document.getElementById('hw1_list');
+        let liCnt = 3;
+
+        document.getElementById('hw1_liBtn').addEventListener('click', function(){
+            const addLi = document.createElement('li');
+
+            addLi.textContent = `item${++liCnt}`
+            ulList.append(addLi);
+        })
+
+        // 2. prepend
+        document.getElementById('hw2_h1Btn').addEventListener('click', function(){
+            const header = document.getElementById('header');
+            const title = document.createElement('h1');
+
+            title.textContent = "Welcome to DOM Node";
+            header.prepend(title);
+            this.style.display = "none";
+        })
+
+        // 3. replaceWith 
+        document.getElementById('hw3_rpBtn').addEventListener('click', function(){
+            const orgP = document.getElementById('paragraph');
+            const newP = document.createElement('p');
+
+            newP.textContent = "Goodbye for now :)";
+            orgP.replaceWith(newP);
+            this.style.display = "none";
+        })
+        
+        // 4. insertBefore & nextElementSibling
+        const containerHw4 = document.getElementById('containerHw4');
+        const middleHw4 = document.getElementById('middleHw4');
+
+        document.getElementById('hw4_inBfBtn').addEventListener('click', function(){
+            const newDiv = document.createElement('div');
+            const newBtn = document.createElement('button');
+
+            newDiv.textContent = `Before Middle`;
+            newBtn.textContent = `highlight nextElementSibling`;
+            newDiv.append(newBtn);
+
+            containerHw4.insertBefore(newDiv, middleHw4);
+            this.style.display = "none";
+
+            newBtn.addEventListener('click', function(){
+                newDiv.nextElementSibling.style.display = "inline-block";
+                newDiv.nextElementSibling.style.backgroundColor = "yellow";
+            })
+        });
+    
+        // 5. cloneNode / appendChild
+        const orgDiv = document.getElementById('original');
+        
+        document.getElementById('hw5_cloneBtn').addEventListener('click', function(){
+            const cloneDiv = orgDiv.cloneNode(true);
+
+            orgDiv.append(cloneDiv);
+        })
+
+        // 6. removeChild
+        const ulMenu = document.getElementById('menu');
+
+        document.getElementById('hw6_removeBtn').addEventListener('click', function(){
+            let item = ulMenu.children;
+
+            ulMenu.removeChild(item[1]);
+        })
+
+        // 7. after method / previousElementSibling
+        const contentHw7 = document.getElementById('contentHw7');
+        const textHw7 = document.getElementById('textHw7');
+
+        document.getElementById('hw7_afterBtn').addEventListener('click', function(){
+            const newDiv = document.createElement('div');
+            const newBtn = document.createElement('button');
+
+            newDiv.textContent = `After Text`;
+            newBtn.textContent = `highlight previousElementSibling`;
+            newDiv.append(newBtn);
+
+            textHw7.after(newDiv);
+            this.style.display = "none";
+
+            newBtn.addEventListener('click', function(){
+                newDiv.previousElementSibling.style.display = "inline-block";
+                newDiv.previousElementSibling.style.backgroundColor = "yellow";
+            })
+        });
+
+        // 8. before method / nextElementSiblinb
+        const note = document.getElementById('note');
+
+        document.getElementById('beforeHw8').addEventListener('click', function(){
+            const newDiv = document.createElement('div');
+            newDiv.textContent = `Note Start`;
+
+            note.before(newDiv);
+
+        })
+
+    </script>
+</body>
+</html>

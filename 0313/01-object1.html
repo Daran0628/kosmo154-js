@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object1</title>
+</head>
+<body>
+    <script>
+        let a = "abc";
+        let b = 1234;
+
+        // 객체란? in javascript
+        const obj = {
+            // key : value
+            val1 : "abc",
+            val2 : 1234,
+            func1 : function(){
+                console.log("안녕하세요");;
+            }
+        };
+
+        // 사용방법 : 변수명.key / 변수명["key"] / 변수명.매서드명() / 변수명["메서드명"]()
+        console.log(obj.val1); // abc
+        console.log(obj["val2"]); // 1234
+        obj.func1(); // 안녕하세요
+        
+
+    </script>
+</body>
+</html>

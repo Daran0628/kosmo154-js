@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nullex1</title>
+</head>
+<body>
+    <script>
+        var firstName = null;
+        var middleName = "";
+        var secondName = undefined;
+        var nickName = "Moon";
+        
+        // firstName = (firstName === null && firstName !== undefiend) ? a : b;
+        
+        console.log(firstName || middleName || secondName || nickName || "익명의 사용자");
+
+        console.log(firstName ?? middleName ?? secondName ?? nickName ?? "익명의 사용자");
+        // ?? nullish coaleascing operator null 병합 연산자
+        
+    </script>
+</body>
+</html>

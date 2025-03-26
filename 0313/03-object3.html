@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object3</title>
+</head>
+<body>
+    <script>
+        const bottle = {
+            juice : 50,
+            open(){ // 함수(x), method 메서드(o)
+                console.log("뚜껑을 연다");    
+            }
+        };
+
+        // 1 - 객체 변수를 이용해 값 변경은 불가능
+        // bottle = {
+        //     water : 80
+        // };
+
+        // 2 - 객체의 내부 속성을 통해서 값 접근 가능 (변경 가능)
+        bottle.juice = 80;
+        console.dir(bottle);
+
+        // 3
+        bottle.water = 100;
+        console.dir(bottle);
+        
+        // 4
+        // bottle.open();
+        bottle["open"]();
+        
+        // 5 - 특정 속성을 제거
+        delete bottle.juice;
+        console.dir(bottle); // juice 가 삭제되어 있음
+        
+
+    </script>
+</body>
+</html>

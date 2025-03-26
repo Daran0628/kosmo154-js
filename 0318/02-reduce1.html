@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reduce1</title>
+</head>
+<body>
+    <script>
+        // reduce : 값의 누적을 할 경우 필요한 함수
+        const arr1_1 = [67, 45, 98, 76, 30];
+
+        // 합계 sum
+        const arr1_2 = arr1_1.reduce(function(prev, current){
+            return prev + current;
+        });
+
+        console.log(arr1_2); // 316
+
+        // 평균
+        let arr1_3 = arr1_1.reduce(function(prev, current){
+            return prev + current;
+        });
+        console.log(arr1_3 / arr1_1.length);
+        
+    </script>
+</body>
+</html>

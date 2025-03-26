@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom1</title>
+</head>
+<body>
+    <p id="p1">안녕하세요</p>
+    <img src="../homework/sudal.png" width="200px" height="200px" id="img" alt="">
+    <a href="#" id="a">link</a>
+    <input type="text" name="txt1" id="txt1">
+    <script>
+        console.dir(document.getElementById("p1"));
+        console.dir(document.getElementById("img"));
+        console.dir(document.getElementById("a"));
+        console.dir(document.getElementById("txt1"));
+        document.getElementById("img").setAttribute("ttl", "asdf");
+        document.getElementById("a").href = "http://www.naver.com";
+        document.getElementById("txt1").setAttribute("type", "number");
+        document.getElementById("img").removeAttribute("ttl");
+        console.log(document.getElementById("txt1").hasAttribute("type"));
+        
+        
+    </script>
+</body>
+</html>

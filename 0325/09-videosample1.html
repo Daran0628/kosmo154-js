@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>video sample1</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Video 태그와 Javascript API 예제</h1>
+
+    <!-- video 태그 : 재생할 동영상 파일(sample.mp4)을 본인 환경에 맞게 수정하세요 -->
+    <video id="myVideo" width="640" height="360" controls>
+        <source src="../t_0325_abs/videos/sample1.mp4" type="video/mp4">
+        브라우저가 video 태그를 지원하지 않습니다.
+    </video>
+
+    <!-- 사용자 정의 컨트롤 -->
+    <div>
+        <button onclick="playVideo()">play</button>
+        <button onclick="pauseVideo()">pause</button>
+        <button onclick="skip()">skip 10s</button>
+    </div>
+
+    <div>
+        <span>현재 시간 : </span>
+        <span id="currentTime">0.00</span>초
+    </div>
+
+    <script>
+        // video 태그 요소를 가져옴
+        const video = document.getElementById('myVideo');
+
+        // 영상의 재생 시간이 변경될 때마다 실행되어 현재 시간을 업데이트
+        video.addEventListener('timeupdate', () => {
+            document.getElementById('currentTime').innerText = video.currentTime.toFixed(2);
+        });
+
+        // video API를 활용하여 동영상 재생
+        function playVideo(){
+            // 동영상이 끝나면 처음부터 재생하도록 설정 가능
+            if (video.ended){
+                video.currentTime = 0;
+            }
+            video.play();
+        }
+
+        // video API를 활용하여 동영상을 일시정지
+        function pauseVideo(){
+            video.pause();
+        }
+
+        // 10초 앞으로 건너뛰기. 단, 총 길이를 초가하지 않도록.
+        function skip(){
+            // 만약 건너뛴 시간이 총 길이를 초과하면 마지막으로 이동
+            if((video.currentTime + 10) < video.duration){
+                video.currentTime += 10;
+            }else{
+                video.currentTime = video.duration;
+            }
+        }
+
+
+    </script>
+</body>
+</html>

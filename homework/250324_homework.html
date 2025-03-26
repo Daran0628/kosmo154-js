@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>250324_homework</title>
+    <style>
+        #main-wrap > div {
+            width: 500px;
+        }
+        .solbox {
+            display: flex;flex-direction: column;justify-content: center;align-items: center;
+            width: 100%;height: 150px;
+            border: 1px solid seagreen;
+            overflow: hidden;
+            p {
+                white-space: nowrap;
+            }
+            &.box-ass9 {
+                height: 250px;
+            }
+        }
+        .show-box, .show-box4 {
+            display: none;
+            text-align: center;
+        }
+        #cntSpan4 {
+            font-size: 3rem;font-weight: bold;
+        }
+        .slide-container {
+            width: 200px;height: 200px;
+            overflow: hidden;
+            #slideUl {
+                display: flex;
+                padding: 0;
+                transition: all 1s;
+                img {width: 200px;height: 200px;}
+            }
+        }
+        #clock {
+            font-size: 2rem;font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-wrap">
+        <div class="ass1">
+            <h2>Q1. 지연 인사 메세지 출력</h2>
+            <div class="solbox box-ass1"></div>
+        </div>
+        <div class="ass2">
+            <h2>Q2. 예약된 메세지 취소</h2>
+            <div class="solbox box-ass2">
+                <button id="showBtn">Let's start</button>
+                <div class="show-box">
+                    <p><span id="cnt">5</span>초 안에 버튼을 누르시오.</p>
+                    <button id="clearBtn">click here</button>
+                </div>
+            </div>
+        </div>
+        <div class="ass3">
+            <h2>Q3. 주기적 격려 메세지 <button id="stop">격려 멈추기</button></h2>
+            <div class="solbox box-ass3"><p></p></div>
+        </div>
+        <div class="ass4">
+            <h2>Q4. 간단한 카운트다운</h2>
+            <div class="solbox box-ass4">
+                <button id="cnt4">5초 카운트다운</button>
+                <div class="show-box4">
+                    <p><span id="cntSpan4">5</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="ass5">
+            <h2>Q5. 알림 메세지 자동 소멸</h2>
+            <div class="solbox box-ass5">
+                <div id="notification">Task Completed!</div>
+            </div>
+        </div>
+        <div class="ass6">
+            <h2>Q6. 깜빡이는 텍스트 효과</h2>
+            <div class="solbox box-ass6">
+                <p id="blink">빨강 / 검정으로 깜빡이는 텍스트</p>
+                <button id="stopBlink">Stop Blinking</button>
+            </div>
+        </div>
+        <div class="ass7">
+            <h2>Q7. 지연 DOM 요소 추가</h2>
+            <div class="solbox box-ass7">
+                <button id="addBtn">Add Paragraph</button>
+                <div id="content"></div>
+            </div>
+        </div>
+        <div class="ass8">
+            <h2>Q8. 자동 정지하는 주기적 메세지</h2>
+            <div class="solbox box-ass8"></div>
+        </div>
+        <div class="ass9">
+            <h2>Q9. 슬라이드 쇼 이미지 전환</h2>
+            <div class="solbox box-ass9">
+                <div class="btn-box">
+                    <button id="slideStart">start</button> <button id="slideStop">stop</button>
+                </div>
+                <div class="slide-container">
+                    <ul id="slideUl" style="list-style: none;">
+                        <li><img src="./img/Frame_0.svg" alt=""></li>
+                        <li><img src="./img/Frame_1.svg" alt=""></li>
+                        <li><img src="./img/Frame_2.svg" alt=""></li>
+                        <li><img src="./img/Frame_3.svg" alt=""></li>
+                        <li><img src="./img/Frame_4.svg" alt=""></li>
+                        <li><img src="./img/Frame_5.svg" alt=""></li>
+                        <li><img src="./img/Frame_6.svg" alt=""></li>
+                        <li><img src="./img/Frame_7.svg" alt=""></li>
+                        <li><img src="./img/Frame_8.svg" alt=""></li>
+                        <li><img src="./img/Frame_9.svg" alt=""></li>
+                        <li><img src="./img/Frame_10.svg" alt=""></li>
+                        <li><img src="./img/Frame_11.svg" alt=""></li>
+                        <li><img src="./img/Frame_12.svg" alt=""></li>
+                        <li><img src="./img/Frame_13.svg" alt=""></li>
+                        <li><img src="./img/Frame_14.svg" alt=""></li>
+                        <li><img src="./img/Frame_15.svg" alt=""></li>
+                        <li><img src="./img/Frame_16.svg" alt=""></li>
+                        <li><img src="./img/Frame_17.svg" alt=""></li>
+                        <li><img src="./img/Frame_18.svg" alt=""></li>
+                        <li><img src="./img/Frame_19.svg" alt=""></li>
+                        <li><img src="./img/Frame_20.svg" alt=""></li>
+                    </ul>    
+                </div>
+            </div>
+        </div>
+        <div class="ass10">
+            <h2>Q10. 실시간 디지털 시계</h2>
+            <div class="solbox box-ass10">
+                <div id="clock">
+                    hh:mm:ss
+                </div>
+            </div>
+        </div>
+        <div class="ass11">
+            <h2>Q11. 타이핑 애니메이션</h2>
+            <div class="solbox box-ass11">
+                <div id="typing"></div>
+            </div>
+        </div>
+        <div class="ass12">
+            <h2>Q12. 자동 저장 알림 (비활성)</h2>
+            <div class="solbox box-ass12">
+                <button id="autoSaveBtn">자동 저장 활성화</button>
+                <p style="display: none;">화면을 클릭하면 자동 저장 타이머가 취소 됩니다.</p>
+            </div>
+        </div>
+        <div class="ass13">
+            <h2>Q13. 가상의 다운로드 진행 상황</h2>
+            <div class="solbox box-ass13">
+                <p>다운로드 <span id="downloadQ13">0</span>%</p>
+                <button id="downBtn">다운로드하기</button>
+            </div>
+        </div>
+        <div class="ass14">
+            <h2>Q14. 배경색 전환 토글</h2>
+            <div class="solbox box-ass14"></div>
+        </div>
+        <div class="ass15">
+            <h2>Q15. 지연 페이지 리다이렉션 시뮬레이트</h2>
+            <div class="solbox box-ass15">
+                <p>"You will be redirected in <span id="cntQ15">5</span> seconds."</p>
+            </div>
+        </div>
+        <div class="ass16">
+            <h2>Q16. 게임 시작 전 카운트</h2>
+            <div class="solbox box-ass16"></div>
+        </div>
+        <div class="ass17">
+            <h2>Q17. 주기적 데이터 풀링 시뮬레이트</h2>
+            <div class="solbox box-ass17"></div>
+        </div>
+        <div class="ass18">
+            <h2>Q18. 제한 시간 내 풀이 타이머</h2>
+            <div class="solbox box-ass18"></div>
+        </div>
+        <div class="ass19">
+            <h2>Q19. 플래시 알림 반복 후 자동 정지</h2>
+            <div class="solbox box-ass19"></div>
+        </div>
+        <div class="ass20">
+            <h2>Q20. 주기적 날씨 업데이트 시뮬레이트</h2>
+            <div class="solbox box-ass20"></div>
+        </div>
+    </div>
+    <script>
+        // 1. setTimeout()
+        const greeting = setTimeout(function(){
+            document.querySelector('.box-ass1').textContent = "Hello, Student!"
+        }, 3000);
+        
+        // 2. clearTimeout()
+        let clear2;
+        document.getElementById('showBtn').addEventListener('click', function(){
+            let cnt = 5;
+            const countDown = setInterval(function(){
+                document.getElementById('cnt').textContent = --cnt;
+            }, 1000);
+            clear2 = setTimeout(function(){
+                document.querySelector('.box-ass2').textContent = "This message should not appear."
+            }, 5000);
+            this.style.display = "none";
+            document.querySelector('.show-box').style.display = "block";
+            
+            document.getElementById('clearBtn').addEventListener('click', function(){
+                clearTimeout(clear2);
+                clearInterval(countDown);
+                this.textContent = "정지됨!!";
+            })
+        })
+
+        // 3. setInterval()
+        // 2초마다 메세지 반복 출력 > 반복 될 때마다 폰트 사이즈 증가 > 정지 버튼 생성
+        let ftS = 20;
+        const inter3 = setInterval(function(){
+            document.querySelector('.box-ass3 p').textContent = "Keep Focused!";
+            document.querySelector('.box-ass3 p').style.fontSize = `${ftS+=5}px`;
+        }, 1000);
+        document.getElementById('stop').addEventListener('click', function(){
+            clearInterval(inter3);
+        });
+
+        // 4. countdown timer
+        let ctnNum = 5;
+        document.getElementById('cnt4').addEventListener('click', function(){
+            this.style.display = 'none';
+            document.querySelector('.show-box4').style.display = "block";
+
+            const time4 = setTimeout(function(){
+                document.querySelector('.show-box4').style.display = "none";
+                document.querySelector('.box-ass4').append(document.createElement('p').textContent= "Countdown Finished!");
+            }, 5000)
+            
+            const int4 = setInterval(function(){
+                document.getElementById('cntSpan4').textContent = --ctnNum;
+            }, 1000);
+        });
+
+        // 5. setTimeout()
+        const timeoutQ5 = setTimeout(function(){
+            document.getElementById('notification').style.display = "none";
+        }, 4000);
+
+        // 6. setInterval() & clearInterval()
+        
+        let isRed = false;
+
+        const interQ6 = setInterval(function(){
+            if(isRed){
+                document.getElementById('blink').style.color = "black";
+                isRed = false;
+            }else {
+                document.getElementById('blink').style.color = "red";
+                isRed = true;
+            }
+        }, 500)
+        document.getElementById('stopBlink').addEventListener('click', function(){
+            clearInterval(interQ6);
+            document.getElementById('blink').style.color = "black";
+        });
+
+        // 7. addEventListener() & setTimeout()
+        document.getElementById('addBtn').addEventListener('click', function(){
+            const timeoutQ7 = setTimeout(function(){
+                const newP = document.createElement('p');
+                newP.textContent = "New Paragraph Added!"
+                document.getElementById('content').append(newP);
+                document.getElementById('addBtn').style.display = 'none';
+            }, 2000);
+        });
+
+        // 8. setInterval() & clearInterval() w/ countdown
+        let countQ8 = 0;
+        let interQ8 = setInterval(function(){
+            countQ8++
+            if(countQ8 === 4){
+                clearInterval(interQ8);
+                document.querySelector('.box-ass8').textContent = "Process completed."
+            }else{
+                document.querySelector('.box-ass8').textContent = "Processing..."
+            }
+        }, 1000);
+
+        // 9. setInterval() & clearInterval() in slide
+        let countQ9 = 0;
+        let interQ9;
+        document.getElementById('slideStart').addEventListener('click', function(){
+            interQ9 = setInterval(function(){
+                document.getElementById('slideUl').style.marginLeft = `${countQ9-=200}px`;
+                (countQ9 <= -4000) ? countQ9 = 0 : '';
+            }, 1000);
+        })
+        document.getElementById('slideStop').addEventListener('click', function(){
+            clearInterval(interQ9);
+        })
+        
+        // 10. time data
+        
+        setInterval(function(){
+            const now = new Date();
+            const hr = now.getHours();
+            const h = (hr > 12) ? hr - 12 : hr;
+            const hh = (h < 10) ? `0${h}` : h;
+            const min = now.getMinutes();
+            const mm = (min < 10) ? `0${min}` : min;
+            const sec = now.getSeconds();
+            const ss = (sec < 10) ? `0${sec}` : sec;
+
+            document.getElementById('clock').textContent = `${hh}:${mm}:${ss}`
+        }, 1000);
+    
+        // 11. setInterval() w/ typing a text by a text
+        const aLine = `"Hello, welcome to the typing effect demo!"`;
+        const arr11 = [...aLine];
+        let countQ11 = 0;
+
+        const interQ11 = setInterval(function(){
+            const newSpan = document.createElement('span').cloneNode();
+            if(countQ11 >= arr11.length){
+                clearInterval(interQ11);
+            }else{
+                newSpan.textContent = `${arr11[countQ11++]}`
+    
+                document.getElementById('typing').append(newSpan);
+            }
+        }, 100);
+
+        // 12. setTimeout()
+        let timeoutQ12;
+        let isSetted = false;
+        document.getElementById('autoSaveBtn').addEventListener('click', function(){
+            this.style.display = 'none';
+            document.querySelector('.box-ass12 p').style.display = 'block';
+            setTimeout(function(){isSetted = true;}, 50);
+            timeoutQ12 = setTimeout(function(){
+                alert("You're inactive. Auto saving progress...");
+            }, 5000);
+        })
+        document.addEventListener('click', function(){
+                if(isSetted){
+                    clearTimeout(timeoutQ12);
+                    alert("Activity detected; auto-save cancelled.");
+                }
+            })
+
+        // 13. setInterval() & clearInterval()
+        let interQ13;
+        let countQ13 = 0;
+        document.getElementById('downBtn').addEventListener('click',function(){
+            this.style.display = "none";
+
+            interQ13 = setInterval(function(){
+                document.getElementById('downloadQ13').textContent = `${countQ13+=10}`
+                if(countQ13 > 100){
+                    clearInterval(interQ13);
+                    document.querySelector('.box-ass13 p').textContent = 'Download complete!';
+                };
+            }, 1000);
+        })
+
+        // 14. setInterval() & setTimeout()
+        isBgBlue = false;
+        const interQ14 = setInterval(function(){
+            if(isBgBlue){
+                document.querySelector('.box-ass14').style.background = 'white';
+                isBgBlue = false;
+            }else{
+                document.querySelector('.box-ass14').style.background = 'lightblue';
+                isBgBlue = true;
+            }
+        }, 1000)
+        const timeoutQ14 = setTimeout(function(){
+            clearInterval(interQ14);
+            document.querySelector('.box-ass14').textContent = "Background color toggle stopped."
+        }, 10000);
+
+        // 15. setTimeout() & setInterval()
+        let cntQ15 = 5;
+        let interQ15;
+        let timeQ15;
+
+        interQ15 = setInterval(function(){
+            if(cntQ15 > 0){
+                document.getElementById('cntQ15').textContent = `${--cntQ15}`;
+            }
+        }, 1000);
+        timeQ15 = setTimeout(function(){
+            clearInterval(interQ15);
+            document.querySelector('.box-ass15 p').textContent = `Redirecting now...`;
+        }, 5000);
+        
+        // 16.
+        // 17.
+        // 18.
+        // 19.
+        // 20.
+    </script>
+</body>
+</html>

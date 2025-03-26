@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>250319_assignment</title>
+    <style>
+        .ass1-div span {font-size: 1.15rem;font-weight: bold;}
+        #mouseOnClient {color: red;}
+        #mouseOnPage {color: blue;}
+        #mouseOnScreen {color: green}
+
+        .ass5-div {
+            position: relative;
+            display: flex;gap: 30px;
+            p {
+                width: 100px;height: 100px;
+                border-radius: 50%;
+                &:nth-child(1){background: lightblue;}
+                &:nth-child(2){background: lightpink;}
+                &:nth-child(3){background: gold;}
+                &:nth-child(4){
+                    position: absolute;bottom: -30px;left: 10%;
+                    width: auto;height: 25px;
+                    border-radius: none;
+                    font-size: 10px;
+                    text-align: center;
+                }
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="main-wrap">
+        <h1>25 03 19 assignment DOM event</h1>
+        <div class="ass1">
+            <h2>Q1 & 3Q. 마우스 커서 좌표 확인</h2>
+            <div class="sol-box ass1-div">
+                <p>마우스 커서 실시간 좌표</p>
+                <p>clientX,Y <span id="mouseOnClient"> ( ? , ? )</span></p>
+                <p>pageX,Y <span id="mouseOnPage">( ? , ? )</span> </p>
+                <p>screenX,Y <span id="mouseOnScreen">( ? , ? )</span> </p>
+            </div>
+        </div>
+        <div class="ass2">
+            <h2>Q2. 수정키와 함께 커서 감지</h2>
+            <div class="sol-box ass2-div">
+                <p id="ass2-p"></p>
+                <button id="ass2-btn">click here w/ modifier key</button>
+            </div>
+        </div>
+        <div class="ass4">
+            <h2>Q4. 키보드 입력 및 Enter 처리</h2>
+            <div class="sol-box ass4-div">
+                <input id="ass4Input" type="text" placeholder="여기에 입력하세요...">
+                <p>Enter 치면 알림창!</p>
+                <p>key / code: <span id="ass4Span"></span></p>
+            </div>
+        </div>
+        <div class="ass5">
+            <h2>Q5. 버튼 클릭한 마우스 버튼 감지</h2>
+            <div class="sol-box ass5-div">
+                <p id="ass5_1"></p>
+                <p id="ass5_2"></p>
+                <p id="ass5_3"></p>
+                <p>마우스의 여러 버튼을 이용해 원을 클릭하세요.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. mousemover, clientX/Y, pageX/Y, screenX/Y
+        document.addEventListener('mousemove', function(e){
+            const pClient = document.getElementById('mouseOnClient');
+            const pPage = document.getElementById('mouseOnPage');
+            const pScreen = document.getElementById('mouseOnScreen');
+
+            pClient.textContent = `(${e.clientX} , ${e.clientY})`;
+            pPage.textContent = `(${e.pageX} , ${e.pageY})`;
+            pScreen.textContent= `(${e.screenX} , ${e.screenY})`;
+        });
+    
+        // 2. click, modifier keys : shift, alt, ctrl, meta
+        document.getElementById('ass2-btn').addEventListener('click', function(e){
+            const p = document.getElementById('ass2-p');
+            if(e.shiftKey){
+                p.textContent = 'shift 키가 함께 눌렸습니다.'
+            }else if(e.ctrlKey){
+                p.textContent = 'ctrl 키가 함께 눌렸습니다.'
+            }else if(e.altKey){
+                p.textContent = 'alt 키가 함께 눌렸습니다.'
+            }else if(e.metaKey){
+                p.textContent = 'meta 키가 함께 눌렸습니다.'
+            }
+        })
+
+        // 4. keydown event
+        document.getElementById('ass4Input').addEventListener('keydown', function(e){
+            const ass4Span = document.getElementById('ass4Span');
+
+            // ass4Span.textContent = `${e.key} / ${e.code}`
+            (e.key == "Enter") ? alert('Enter 키가 눌렸습니다.') 
+                : ass4Span.textContent = `${e.key} / ${e.code}`;
+        })
+    
+        // 5. mousebutton event
+        const circles = document.querySelectorAll('.ass5-div > p');
+
+        document.getElementById('ass5_1').addEventListener('click', function(e){
+            e.preventDefault();
+            console.log(e.button);
+        })
+        // circles.forEach(function(circle){
+        //     circle.addEventListener('click', function(e){
+        //         console.log(e.button);
+        //     })
+        // })
+    </script>
+</body>
+</html>

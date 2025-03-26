@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logical3</title>
+</head>
+<body>
+    <script>
+        // 자바스크립트 특수 연산
+        console.log("Cat" && true); // true
+        // !! => true / false 를 출력
+        console.log(!!"Cat"); // true => 문자열은 값이 있으면 true
+        console.log(!!""); // false         없으면 false
+        console.log(!!" "); // true => 공백도 문자열 값이 존재 true
+        console.log(typeof ""); // string 값이 없어도 문자열
+        console.log(typeof " "); // string 공백이어도 문자열
+        
+        // .trim() 공백을 제거하는 명령어(내장함수 - 대부분의 프로그래밍 언어에서 전처리 과정에서 사용);
+
+        console.log(false && "Cat"); // false
+        console.log("Dog" && "Cat"); // Cat
+        console.log("Dog" && false); // false        
+        console.log("Dog" && true); // true
+        console.log(true && "Cat"); // Cat
+        
+        console.log("Dog" && " "); // " "
+        console.log("Dog" && ""); // ""
+        console.log("" && "Cat"); // ""
+        console.log(" " && "Cat"); // "Cat"
+        console.log("" && true); // ""
+        console.log("" && false); // ""
+        console.log(" " && true); // true
+        console.log(" " && false); // false
+        console.log(true && ""); // "" 
+        console.log(false && ""); // false
+        console.log(true && " "); // " "
+        console.log(false && " "); // false
+        
+        console.log(true && null); // null
+
+        console.log(false || "Cat"); // Cat
+        
+        console.log(typeof null); // object - primitive data type이 아님
+        console.log(typeof undefined); // undefined
+        console.log(!!null); // false
+
+        console.log("Dog" || "Cat" || null); // "Dog"
+        
+        console.log(!!null); // false / type: object
+        console.log(!!{}); // true / type: object
+        console.log(!![]); // true / type: object
+        
+        console.log(!(null && null)); // true
+        console.log(!null && null); // null
+        console.log(!null || null); // true
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

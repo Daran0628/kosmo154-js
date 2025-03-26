@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inheritance1</title>
+</head>
+<body>
+    <script>
+        class Member{
+            setName(name){
+                this.name = name;
+            }
+            getName(){
+                return this.name;
+            }
+        }
+        class Employee extends Member { // Member의 setName, getName 기능을 가져옴
+            setDept(dept){
+                this.dept = dept;
+            }
+            getDept(){
+                return this.dept;
+            }
+            // setName(name){
+            //     this.name = `${name} 2`;
+            // }
+            // getName(){
+            //     return this.name;
+            // }
+            // 상속된 메소드와 같은 메소드를 선언하게되면 덮어쓰기가 됨???
+        }
+        const John = new Employee();
+        John.setName("John Doe");
+        John.setDept("sails");
+        console.log(`${John.getName()} : ${John.getDept()}`); // John Doe : sails
+    </script>
+</body>
+</html>

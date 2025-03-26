@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery1</title>
+    <script src ="../library/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <script>
+        // 1.0 초창기 베타 막 벗어난 시절 문법
+        // jQuery(document).ready(function(){
+        //     $("#h1").css({color : "red"});
+        // });
+        
+        // 1.0 중반기 릴리즈 되던 시절 문법
+        // $(document).ready(function(){
+            //     $("#h1").css({color : "red"});
+            // });
+            
+            // 1.0 후반기 2.0 넘어가기 전 극단적 축약 세력에 의해 완성된 jQuery
+            $(function(){
+                $("#h1").css({color: "red"});
+            });
+    </script>
+    <h1 id="h1">안녕하세요</h1>    
+</body>
+</html>

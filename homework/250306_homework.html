@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>250306_homework</title>
+    <style>
+        * {user-select: none;}
+        ul {list-style: none;padding: 0;}
+        #main-wrap > div {
+            margin: 3rem;
+        }
+        .result-box {
+            width: 250px;height: 30px;
+            background-color: lightblue;
+            margin-top: 1rem;
+            font-size: 0.8rem;text-align: center;line-height: 30px;
+        }
+        .result-box.longer {
+            width: 500px;
+        }
+        .result-box.heigher {
+            width: 300px;
+            height: auto;
+            padding: 1rem;
+            text-align: left;
+            p {padding: 0;margin: 0;
+                &:last-child {font-weight: bold;}
+            };
+        }
+        .result-box.line {
+            display: flex;justify-content: space-between;
+            border-bottom: 2px solid #000;
+            background: none;
+            margin: 0;
+            text-align: left;
+            span {font-size: 1rem;;font-weight: bold;}
+        }
+        .drink-box {
+            display: flex;gap: 3.5rem;
+        }
+        .label {
+            display: flex;flex-direction: column;
+            height: auto;
+            font-size: 0.85rem;font-weight: bold;
+        }
+        .input {
+            display: flex;flex-direction: column;
+            height: auto;
+        }
+        .input input {
+            width: 50px;
+        }
+
+        #reset_btn {
+            padding: 0 1rem;
+            margin-top: 1rem;
+            margin-left: 9.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-wrap">
+        <div class="hw1">
+            <h2>1. 홀짝 판별기</h2>
+            <input type="number" id="num_input" placeholder="숫자를 입력하세요.">
+            <button id="num_btn">검사</button>
+            <div class="result-box" id="result_box1"></div>
+        </div>
+        <div class="hw2">
+            <h2>2. 점수 등급 평가</h2>
+            <input type="number" id="score_input" placeholder="점수를 입력하세요." min="0">
+            <button id="score_btn">등급 확인</button>
+            <div class="result-box" id="result_box2"></div>
+        </div>
+        <div class="hw3">
+            <h2>3. 나이 계산기</h2>
+            <input type="number" id="age_input" placeholder="출생년도를 입력하세요." min="1900">
+            <button id="age_btn">나이 계산</button>
+            <div class="result-box" id="result_box3"></div>
+        </div>
+        <div class="hw4">
+            <h2>4. 문자열 길이 비교</h2>
+            <input type="text" id="txtLen_input1" placeholder="내용을 입력하세요.">
+            <input type="text" id="txtLen_input2" placeholder="내용을 입력하세요.">
+            <button id="txtLen_btn">길이 비교</button>
+            <div class="result-box longer" id="result_box4"></div>
+        </div>
+        <div class="hw5">
+            <h2>5. 간단한 할인 계산기</h2>
+            <input type="number" id="price_input" placeholder="가격을 입력하세요.">
+            <input type="number" id="dis_input" min="0" max="100" placeholder="할인율">
+            <button id="calc_btn">계산</button>
+            <div class="result-box heigher" id="result_box5"></div>
+        </div>
+        <div class="hw6">
+            <h2>6. 음료수 키오스크 자판기</h2>
+            <div class="drink-box">
+                <ul class="label">
+                    <li>
+                        <label for="coke_input">콜라 (1500원)</label>
+                    </li>
+                    <li>
+                        <label for="sprite_input">사이다 (1300원)</label>
+                    </li>
+                    <li>
+                        <label for="water_input">생수 (1000원)</label>
+                    </li>
+                </ul>
+                <ul class="input">
+                    <li>
+                        <input type="number" id="coke_input" value="0" min="0">
+                    </li>
+                    <li>
+                        <input type="number" id="sprite_input" value="0" min="0">
+                    </li>
+                    <li>
+                        <input type="number" id="water_input" value="0" min="0">
+                    </li>
+                </ul>
+            </div>
+            <div class="result-box line" id="result_box6">
+                <span>총 합:</span><span id="total_price">0 원</span>
+            </div>
+            <button id="reset_btn">리셋</button>
+        </div>
+    </div>
+
+
+    <script>
+
+    // 1. 홀짝 판별기
+
+        let numInput = document.getElementById('num_input');
+        let numBtn = document.getElementById('num_btn');
+        let resBox1 = document.getElementById('result_box1');
+
+        numInput.addEventListener('keydown', function(e) {
+            if (e.key == "Enter") {
+                numBtn.click();
+            }
+        })
+        numBtn.addEventListener('click', function() {
+            let inputVal = parseInt(numInput.value);
+            
+            let result = (inputVal % 2 == 0) ? "짝수" : "홀수" ;            
+            (numInput.value == "") ? alert('숫자를 입력하세요.') : resBox1.textContent = `${inputVal}는 ${result}입니다.`;
+        });
+
+    // 2. 점수 등급 평가
+
+        let scoreInput = document.getElementById('score_input');
+        let scoreBtn = document.getElementById('score_btn');
+        let resBox2 = document.getElementById('result_box2');
+
+        scoreInput.addEventListener('keydown', function(e) {
+            if (e.key == "Enter") {
+                scoreBtn.click();
+            }
+        })
+
+        scoreBtn.addEventListener('click', function() {
+            let inputVal = parseInt(scoreInput.value);
+            
+            let result = (inputVal == 100 ) ? "A+" : (inputVal >= 90) ? "A" : (inputVal >= 80) ? "B" : (inputVal >= 70) ? "C" : (inputVal >= 60) ? "D" : "F";
+
+            (scoreInput.value == "") ? alert('점수를 입력하세요.') : (inputVal > 100 || inputVal < 0) ? alert('올바른 점수를 입력하세요.')
+            : resBox2.textContent = `당신의 점수는 ${inputVal}이며, 등급은 ${result}입니다.`;
+        })
+
+    // 3. 나이 계산기
+
+        let ageInput = document.getElementById('age_input');
+        let ageBtn = document.getElementById('age_btn');
+        let resBox3 = document.getElementById('result_box3');
+
+        ageInput.addEventListener('keydown', function(e) {
+            if (e.key == "Enter") {
+                ageBtn.click();
+            }
+        })
+
+        ageBtn.addEventListener('click', function() {
+            let inputVal = parseInt(ageInput.value);
+            let thisYear = parseInt(new Date().getFullYear());
+            
+            let result = thisYear - inputVal;
+            let r19 = (result >= 20) ? "성인" : "미성년자";
+
+            (ageInput.value == "") ? alert('출생년도를 입력하세요.') : (inputVal < 1900 || inputVal > thisYear) ? alert('올바른 출생년도를 입력하세요.')
+            : resBox3.textContent = `현재 나이는 ${result}세 입니다. ${r19}입니다.`
+        })
+
+    // 4. 문자열 길이 비교
+
+        let txtInput1 = document.getElementById('txtLen_input1');
+        let txtInput2 = document.getElementById('txtLen_input2');
+        let txtLenBtn = document.getElementById('txtLen_btn');
+        let resBox4 = document.getElementById('result_box4');
+
+        txtInput1.addEventListener('keydown', function(e) {
+            if (e.key == "Enter") {
+                txtInput2.focus();
+            }
+        })
+        txtInput2.addEventListener('keydown', function(e) {
+            if (e.key == "Enter") {
+                txtLenBtn.click();
+            }
+        })
+
+        txtLenBtn.addEventListener('click', function() {
+            let inputLen1 = txtInput1.value.length;
+            let inputLen2 = txtInput2.value.length;
+            
+            let result = (inputLen1 == inputLen2) ? "과 같습니다" : (inputLen1 > inputLen2) ? "보다 깁니다" : "보다 짧습니다";
+            
+            (inputLen1 == "" || inputLen2 == "") ? alert('내용을 입력하세요.') : 
+            resBox4.textContent = `첫 번째 문자열(길이: ${inputLen1}자)이 두 번째 번째 문자열(길이: ${inputLen2}자)${result}.`;
+        })
+
+    // 5. 할인 계산기
+
+        let priceInput = document.getElementById('price_input');
+        let disInput = document.getElementById('dis_input');
+        let calcBtn = document.getElementById('calc_btn');
+        let resBox5 = document.getElementById('result_box5');
+
+        priceInput.addEventListener('keydown', function() {
+                if (e.key == "Enter") {
+                    disInput.focus();
+                }
+            })
+        disInput.addEventListener('keydown', function(e) {
+                if (e.key == "Enter") {
+                    calcBtn.click();
+                }
+            })
+
+        calcBtn.addEventListener('click', function() {
+            let inputPrice = parseInt(priceInput.value);
+            let inputDic = parseInt(disInput.value);
+            
+            
+            let a = `원가격: ${inputPrice.toLocaleString()}원`;
+            let b = `할인율: ${inputDic}%`;
+            let cc = (inputPrice * (inputDic / 100)).toFixed(0);
+            let c = `할인 금액: ${cc.toLocaleString()}원`;
+            let dd = (inputPrice - cc).toLocaleString();
+            let d = `최종 가격: ${dd}원`;
+            let e = (inputDic == 0) ? "할인이 적용되지 않았습니다." : "";
+            let fTxt1 = '좋은 구매였습니다!';
+            let fTxt2 = '감사합니다!';
+            let f = (inputDic == 0) ? `최종 가격은 ${dd}입니다. ${fTxt2}` : `최종 가격은 ${dd}입니다. ${fTxt1}`;
+
+            let results = [a, b, c, d, e, f];
+            
+            function finalRes() { 
+                    resBox5.innerHTML = '';
+                    results.forEach(result => {
+                        let p = document.createElement('p');
+
+                    p.textContent = result;
+                    resBox5.append(p);
+                    })     
+            }
+            (inputPrice < 0 || inputDic < 0 || inputDic >= 100 || disInput.value == "")
+                ? alert('올바른 금액과 할인율을 입력하세요.') : finalRes();
+    })
+
+    // 6. 음료수 키오스크 자판기
+
+        let cokeInput = document.getElementById('coke_input');
+        let spriteInput = document.getElementById('sprite_input');
+        let waterInput = document.getElementById('water_input');
+
+        let resetBtn = document.getElementById('reset_btn');
+        let resultVal = document.getElementById('total_price');
+
+        let inputs = [cokeInput, spriteInput, waterInput];
+
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                let coke = parseInt(cokeInput.value) || 0;
+                let sprite = parseInt(spriteInput.value) || 0;
+                let water = parseInt(waterInput.value) || 0;
+
+                let total = coke * 1500 + sprite * 1300 + water * 1000;
+
+                (coke < 0 || sprite < 0 || water < 0) ? alert('올바른 수량을 입력하세요.') :
+                resultVal.textContent = `${total} 원`;
+                });
+            }
+        );
+
+        cokeInput.addEventListener('keydown', function(e) {
+                if (e.key == "Enter") {
+                    spriteInput.focus();
+                }
+            })
+        spriteInput.addEventListener('keydown', function(e) {
+                if (e.key == "Enter") {
+                    waterInput.focus();
+                }
+            })
+
+        resetBtn.addEventListener('click', function() {
+            cokeInput.value = 0;
+            spriteInput.value = 0;
+            waterInput.value = 0;
+            resultVal.textContent = '0 원';
+        });
+    </script>
+</body>
+</html>

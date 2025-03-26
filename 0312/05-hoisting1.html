@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hoisting1</title>
+</head>
+<body>
+    <script>
+
+        console.log(func1());
+        // console.log(func2()); // error
+        console.log(func2); // undefined
+        // console.log(func3); // error
+        
+        function func1(){
+            return 'aaa';
+        }
+        var func2 = function(){
+            return 'bbb';
+        }
+        let func3 = function(){
+            return 'ccc';
+        }
+        
+        console.log(func3); // f (){ return 'ccc';}
+
+    </script>
+</body>
+</html>

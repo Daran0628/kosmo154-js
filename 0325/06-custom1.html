@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>custom1</title>
+</head>
+<body>
+    <custom-input></custom-input>
+    <script>
+        class CustomInput extends HTMLElement{
+            connectedCallback() {
+                const label = document.createElement('label');
+                label.innerText = "name";
+                this.append(label);
+                let input = document.createElement('input');
+                this.append(input);            }
+        }
+        // 태그에 대한 정의 등록
+        customElements.define('custom-input', CustomInput);
+    </script>
+</body>
+</html>

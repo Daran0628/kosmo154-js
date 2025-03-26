@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom svg1</title>
+    <style>
+        .c-blue {
+            fill: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>SVG attribute handdling exmaples</h1>
+    
+    <svg width="300" height="200" viewBox="0 0 300 200">
+        <circle id="my-circle" cx="150" cy="100" r="50" fill="red" />
+    </svg>
+    <br>
+    <button id="change-color">change color</button>
+    <button id="move-circle">move location</button>
+    <button id="resize-circle">resize circle</button>
+
+    <script>
+        const circle = document.getElementById('my-circle');
+
+        // 색상 변경 이벤트
+        document.getElementById("change-color").addEventListener('click', function(){
+            
+            
+            circle.classList.toggle('c-blue');
+        })
+        document.getElementById("move-circle").addEventListener('click', function(){
+            let ranNum = Math.floor(Math.random() * 200) + 50;
+            
+            // console.log(ranNum);
+            circle.setAttribute("cx", ranNum);
+        })
+        document.getElementById("resize-circle").addEventListener('click', function(){
+            let ranNum = Math.floor(Math.random() * 40) + 30;
+            
+            // console.log(ranNum);
+            circle.setAttribute("r", ranNum);
+        })
+    </script>
+</body>
+</html>

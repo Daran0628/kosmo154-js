@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>250312_homework</title>
+    <style>
+        a, a:link, a:visited {text-decoration: none;color: #000;}
+
+        #main-wrap {
+            margin-bottom: 30rem;
+        }
+        #main-wrap > div > div {
+            display: flex;justify-content: center;align-items: center;
+            width: 17.5rem;height: 8.5rem;
+            margin-left: 0.5rem;
+        }
+        
+        .bg-toggle, .bg-dblClick, .opac-dblClick {
+            display: flex;justify-content: center;align-items: center;
+            width: 150px;height: 150px;
+            background: blue;
+        }
+        header {
+            position: fixed;
+            display: flex;justify-content: center;align-items: center;
+            width: 100%;height: 5rem;
+            background: slategray;
+            transition: all 0.3s;
+            a {color: white !important;}
+        }
+        .hw1 {padding-top: 10rem;}
+    </style>
+</head>
+<body>
+    <div id="main-wrap">
+        <header><h1><a href="#">page header</a></h1></header>
+        <!-- <ul>
+            <li><a href="#a1">문제 1번</a></li>
+            <li><a href="#a2">문제 2번</a></li>
+            <li><a href="#a3">문제 3번</a></li>
+            <li><a href="#a4">문제 4번</a></li>
+            <li><a href="#a5">문제 5번</a></li>
+            <li><a href="#a6">문제 6번</a></li>
+            <li><a href="#a7">문제 7번</a></li>
+            <li><a href="#a8">문제 8번</a></li>
+            <li><a href="#a9">문제 9번</a></li>
+            <li><a href="#a10">문제 10번</a></li>
+        </ul> -->
+        <div class="hw1">
+            <h2><a id="a1">1. 버튼 클릭시 div 배경색 토글</a></h2>
+            <div>
+                <div class="bg-toggle">
+                    <button class="bg-btn">click</button>
+                </div>
+            </div>
+        </div>
+        <div class="hw2">
+            <h2><a id="a2">2. 마우스 오버 p 의 폰트색 변경</a></h2>
+            <div>
+                <p class="p-color">마우스 오버 해보시던지</p>
+            </div>
+        </div>
+        <div class="hw3">
+            <h2><a id="a3">3. 입력 필드 포커스 / 블러</a></h2>
+            <div><label for="input3">text ></label>
+                <input type="text" id="input3"></div>
+        </div>
+        <div class="hw4">
+            <h2><a href="" id="a4">4. 버튼으로 폰트 크기 조절</a></h2>
+            <div style="flex-direction: column;">
+                <p class="p-fontsize">크기 키우던지 줄이던지</p>
+                <div>
+                    <button class='ft_add_btn'>크게</button> <button class='ft_sub_btn'>작게</button>
+                </div>
+            </div>
+        </div>
+        <div class="hw5">
+            <h2><a id="a5">5. 이미지 회전</a></h2>
+            <div style="flex-direction: column;gap: 1rem;height: auto;padding: 1rem 0">
+                <img class="imgRot" src="./sudal.png" width="150px" height="150px">
+                <div>
+                    <button class="rollL-btn">좌로 굴러!</button>
+                    <button class="rollR-btn">우로 굴러!</button>
+                </div>
+                <button class="reset-btn">돌아와라 수달!</button>
+            </div>
+        </div>
+        <div class="hw6">
+            <h2><a id="a6">6. 버튼 클릭시 div 배경색 토글</a></h2>
+            <div>
+                <div class="bg-dblClick"></div>
+            </div>
+        </div>
+        <div class="hw7">
+            <h2><a href="" id="a7">7. 스크롤 이벤트로 헤더 변경</a></h2>
+            <div></div>
+        </div>
+        <div class="hw8">
+            <h2><a href="" id="a8">8. div 클릭시 투명도 토글</a></h2>
+            <div>
+                <div class="opac-dblClick"></div>
+            </div>
+        </div>
+        <div class="hw9">
+            <h2><a href="" id="a9">9. 우클릭 메뉴 방지</a></h2>
+            <p class="con-menu">여기 우클릭해봤자 메뉴 못 보지롱</p>
+        </div>
+        <div class="hw10">
+            <h2><a href="" id="a10">10. 윈도우 리사이즈 동적 변경 </a></h2>
+            <p class="win-resize">창크기를 늘였다 줄였다 해보시던지</p>
+        </div>
+    </div>
+
+    <script>
+// 1. bg color toggle
+    let bgBtn = document.querySelector('.bg-btn');
+    let divBg = document.querySelector('.bg-toggle');
+
+    let flag = false;
+
+    function unclicked(){
+        divBg.style.backgroundColor = 'blue';
+        flag = false;
+    }
+    function clicked(){
+        divBg.style.backgroundColor = 'gray';
+        flag = true;
+    }
+        bgBtn.addEventListener('click', function(){
+            flag ?  unclicked() : clicked();
+            setTimeout(()=>{
+                divBg.style.backgroundColor = 'blue';
+                flag = false;
+            }, "3000");
+        });
+
+    // + 심화 일정시간 후 자동으로 원래 색상으로 돌아오기
+
+
+
+// 2. p mouseover event
+
+    let pColor = document.querySelector('.p-color');
+
+    pColor.addEventListener('mouseover', function(){
+        this.style.color = "red";
+    });
+    pColor.addEventListener('mouseout', function(){
+        this.style.color = "black";
+    });
+
+// 3. input focus / bur
+    let input3 = document.getElementById('input3');
+
+    input3.addEventListener('focus', function(){
+        this.style.outlineColor = "green";
+    })
+    // input3.addEventListener('blur', function(){
+    //     this.style.outlineColor = "none";
+    // })
+
+// 4. font-size controlling by btn
+    let pFontSize = document.querySelector('.p-fontsize');
+
+    let addBtn = document.querySelector('.ft_add_btn');
+    let subBtn = document.querySelector('.ft_sub_btn');
+    let fNum = 16;
+
+    addBtn.addEventListener('click', function(){
+        pFontSize.style.fontSize = `${fNum++}px`;
+    })
+    subBtn.addEventListener('click', function(){
+        pFontSize.style.fontSize = `${fNum--}px`;
+    })
+    
+// 5. img rotatting
+    let imgRot = document.querySelector('.imgRot');
+    let rollRBtn = document.querySelector('.rollR-btn');
+    let rollLBtn = document.querySelector('.rollL-btn');
+    let resetBtn = document.querySelector('.reset-btn');
+    let angle = 0;
+
+    rollRBtn.addEventListener('click', function(){        
+        imgRot.style.transform = `rotate(${angle+=10}deg)`;
+    })
+
+    rollLBtn.addEventListener('click', function(){        
+        imgRot.style.transform = `rotate(${angle-=45}deg)`;
+    })
+    
+    // + 심화 회전값을 초기화 하는 버튼 만들기
+        resetBtn.addEventListener('click', function(){
+            imgRot.style.transform = `rotate(${angle = 0}deg)`;
+        })
+
+// 6. dbl click bg toggle
+
+    let divBgDbl = document.querySelector('.bg-dblClick');
+    let flag2 = false;
+
+    divBgDbl.addEventListener('dblclick', function(){
+            flag2 ? this.style.backgroundColor = 'blue' : this.style.backgroundColor = 'yellow';
+            flag2 = flag2 ? false : true;
+        });
+
+// 7. scroll event
+
+    let hdr = document.getElementsByTagName('header')[0];
+
+    window.addEventListener('scroll', function(e){
+        let y = window.scrollY;
+
+        if(y > 100){
+            hdr.style.opacity = "0";
+        }else {
+            hdr.style.opacity = "1";
+        }
+    })
+
+// 8. dbl click opacity toggle
+    let opcBgDbl = document.querySelector('.opac-dblClick');
+    let flag3 = false;
+
+    opcBgDbl.addEventListener('dblclick', function(){
+            flag3 ? this.style.opacity = '1' : this.style.opacity = '0.5';
+            flag3 = flag3 ? false : true;
+        });
+
+// 9. contextMenu preventdefault
+
+    let conP = document.querySelector('.con-menu');
+
+    conP.addEventListener('contextmenu', function(e){
+        e.preventDefault();
+        this.style.color = "red";
+    })
+
+// 10. window resize font resizing
+
+    let winResizeP = document.querySelector('.win-resize');
+
+    window.addEventListener('resize', function(){
+        let winW = window.innerWidth;
+        
+            winResizeP.style.fontSize = `${winW / 50}px`;
+    })
+    </script>
+</body>
+</html>

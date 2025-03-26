@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for in1</title>
+</head>
+<body>
+    <script>
+        const arr1_1 = ["a", "b", "c", "d", "e"];
+        
+        // for in 문 -> object 객체 순회
+        for(key in arr1_1){
+            console.log(`${key} : ${arr1_1[key]}`);
+        }
+        
+        // for of 문 -> array 배열 순회 conditoin: iterable type / object 에 사용하기 위해서 iterable 로 변환, 주로 Map() 사용
+        for(item of arr1_1){
+            console.log(item);
+        }
+        
+        // forEach 문 -> array 배열 내장 함수
+        const arr2_1 = ["a", "b", "b", "c"];
+        const obj1 = {a : "a1", b : "b1", c : "c1"}
+        
+        arr2_1.forEach(function(item, index){
+            console.log(`${index} : ${item}`);
+        })
+        // obj1.forEach(function(item, index){
+        //     console.log(`${index} : ${item}`);
+        // })
+        // object에 forEach를 사용하려면 유사배열(key값이 index & length가 잡힘) 형태로 변형한 후
+            //  Array.forEach.call(object) - 기능 위임
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if3</title>
+</head>
+<body>
+    <input type="number" name="num1" id="num1">
+    <button id="btn">출력</button>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", function(){
+            var num1 = parseInt(document.getElementById('num1').value);
+
+            var result = "";
+
+            if(num1 > 50){
+                result = "입력값은 50보다 큽니다.";
+            }else{
+                if(num1 > 40 && num1 <= 50){
+                    result = "입력값은 40보다 크고 50보다 작습니다."
+                }else{
+                    if(num1 > 30 && num1 <= 40){
+                        result = "입력값은 30보다 크고 40보다 작습니다."
+                    }else{
+                        if(num1 > 20 && num1 <= 30){
+                            result = "입력값은 20보다 크고 30보다 작습니다."
+                        }else{
+                            result = "입력값은 20이하 입니다."
+                            }
+                        }
+                    }
+                }
+            });
+    </script>
+</body>
+</html>

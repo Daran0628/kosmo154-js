@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call1</title>
+</head>
+<body>
+    <script>
+        function func1(x, y, z){
+            // console.log(this, x, y, z);
+            this.c2 = x+y+z;
+            console.log(this);
+        }
+
+        var b1 = {
+                c1 : "abc"
+            };
+
+        func1.call(b1, 4, 6, 5); // {c1 : "abc", c2 : 15}
+    </script>
+
+    <div class="c1">div1</div>
+    <div class="c1">div2</div>
+    <div class="c1">div3</div>
+
+    <script>
+        const divs = document.getElementsByClassName('c1');
+        console.dir(divs);
+
+        // console.dir(new Array());
+        new Array().forEach.call(divs, function(item){
+            console.dir(item);
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>250310_homework2</title>
+    <style>
+        ul {list-style: none;}
+        p {padding: 0;}
+        #mul22_btn {
+            position: fixed;top: 60%;left: 50%;
+            display: none;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="hw1">
+            <h2>1. 1부터 n까지의 합 구하기</h2>
+            <input type="number" id="number_input" placeholder="n값을 입력하세요.">
+            <button id="number_btn">총합 구하기</button>
+        </li>
+        <li class="hw2">
+            <h2>2. 1부터 n까지 홀수 출력하기</h2>
+            <input type="number" id="odd_input" placeholder="n값을 입력하세요.">
+            <button id="odd_btn">홀수 구하기</button>
+        </li>
+        <li class="hw3">
+            <h2>3. 특정 구구단 출력하기</h2>
+            <input type="number" id="mulTab_input" placeholder="구구단 단수를 입력하세요.">
+            <button id="mulTab_Btn">구구단 보기</button>
+            <div id="multiTab"></div>
+        </li>
+        <li class="hw4">
+            <h2>4. 팩토리얼 계산하기</h2>
+            <input type="number" id="factor_input" placeholder="계승을 구할 숫자를 입력">
+            <button id="factor_btn">계승 구하기</button>
+        </li>
+        <li class="hw5">
+            <h2>5. 문자열 뒤집기</h2>
+            <input type="text" id="txt_input" placeholder="문자를 입력하세요.">
+            <button id="txt_btn">문자열 뒤집기</button>
+        </li>
+        <li class="hw6">
+            <h2>6. 2단부터 9단까지 구구단 전체 출력하기</h2>
+            <div id="multi_tab2"></div>
+            <button id="mul2_btn">구구단 보기</button>
+            <button id="mul22_btn">구구단 닫기</button>
+        </li>
+        <li class="hw7">
+            <h2>7. 1부터 n까지 짝수만 출력하기</h2>
+            <input type="number" id="even_input">
+            <button id="even_btn">짝수 구하기</button>
+        </li>
+        <li class="hw8">
+            <h2></h2>
+        </li>
+        <li class="hw9">
+            <h2></h2>
+        </li>
+        <li class="hw10">
+            <h2></h2>
+        </li>
+        <li class="hw11">
+            <h2></h2>
+        </li>
+        <li class="hw12">
+            <h2></h2>
+        </li>
+        <li class="hw13">
+            <h2></h2>
+        </li>
+        <li class="hw14">
+            <h2></h2>
+        </li>
+        <li class="hw15">
+            <h2></h2>
+        </li>
+    </ul>
+
+    <script>
+// 1. 1부터 n까지의 합 구하기
+        let number = document.getElementById("number_input");
+        let numberBtn = document.getElementById('number_btn');
+        
+        numberBtn.addEventListener('click', function(){
+            let n = parseInt(number.value);
+            let sum = 0;
+
+            for(let i = 1; i <= n; i++ ){                
+                sum += i;
+            }
+
+            alert("합계: " + sum);
+        })
+        
+// 2. 1부터 n까지 홀수 출력하기
+        let oddNum = document.getElementById("odd_input");
+        let oddBtn = document.getElementById("odd_btn");
+
+        oddBtn.addEventListener('click', function(){
+            
+            let n = parseInt(oddNum.value);
+            let odd = "";
+            
+            for(let i = 0; i <= n; i++ ){      
+                
+                odd += (i % 2 == 1) ? `${i}` : " ";
+
+                }
+    
+                alert("홀수 목록: " + odd);
+        })
+// 3. 특정 구구단 출력하기
+        let mulNum = document.getElementById("mulTab_input");
+        let mulBtn = document.getElementById("mulTab_Btn");
+        let multiTab = document.getElementById('multiTab');
+
+        mulBtn.addEventListener('click', function(){
+            
+            let m = parseInt(mulNum.value);
+            let res;
+
+            for(let i = 1; i <= 9; i++){
+                res += `<p>${m} * ${i} = ${m * i}</p>`;    
+            }
+
+            multiTab.innerHTML = res;
+            
+        })
+
+// 4. 팩토리얼 계산하기
+        
+        let factorNum = document.getElementById("factor_input");
+        let factorBtn = document.getElementById("factor_btn");
+
+        factorBtn.addEventListener('click', function(){
+            
+            let n = parseInt(factorNum.value);
+            let res = 1;
+
+            for(let i = 1; i <= n; i++){
+                res *= i;
+            }
+
+            alert("팩토리얼: " + res);
+        })
+
+// 5. 문자열 뒤집기
+        
+        let txtStr = document.getElementById("txt_input");
+        let txtBtn = document.getElementById("txt_btn");
+
+        txtBtn.addEventListener('click', function(){
+
+            let str = txtStr.value;
+            let txtLeng = str.length;
+            let reversed = ""            
+            
+            for(let i = txtLeng - 1;i >= 0; i--) {
+                reversed += str.charAt(i);
+            }
+
+            alert(reversed);
+
+        })
+
+// 6. 2단부터 9단까지 구구단 전체 출력하기
+        
+        let mul2Btn = document.getElementById("mul2_btn");
+        let mulCloseBtn = document.getElementById("mul22_btn");
+        let multiTab2 = document.getElementById("multi_tab2");
+
+        mul2Btn.addEventListener('click', function(){
+
+            let res = "";
+
+            for(let i = 1; i <= 9; i++){
+                
+                for(let i2 = 1; i2 <= 9; i2++){
+                    
+                    res += `<p>${i} * ${i2} = ${i * i2}</p>`
+                }
+            }
+
+            multiTab2.innerHTML = res;
+            this.style.display = "none";
+            mulCloseBtn.style.display = "block";
+
+        })
+
+            mulCloseBtn.addEventListener('click', function(){
+                multiTab2.innerHTML = "";
+                this.style.display = "none";
+                mul2Btn.style.display = "block";
+            })
+
+// 7. 1부터 n까지 짝수만 출력하기
+
+        let evenNum = document.getElementById("even_input");
+        let evenBtn = document.getElementById("even_btn");
+
+        evenBtn.addEventListener('click', function(){
+            
+            let n = parseInt(evenNum.value);
+            let even = "";
+            
+            for(let i = 0; i <= n; i++ ){      
+                
+                even += (i % 2 == 0) ? `${i}` : " ";
+
+                }
+    
+                alert("짝수 목록: " + even);
+        })
+    </script>
+</body>
+</html>

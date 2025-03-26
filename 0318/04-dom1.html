@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom1</title>
+</head>
+<body>
+    <div id="div1">
+        <p>hello</p>
+        <h1>great to meet you</h1>
+        <h3>this is full stack developer class</h3>
+        <p>extra paragraph</p>
+    </div>
+
+    <script>
+        const objs = document.getElementById('div1').children; // -> 유사 배열
+        // DOM 요소 탐색 시, 유사 배열 형태로 잡힘, forEach() 사용 불가
+        // querySelectorAll 경우 유사 배열 (참조 nodeList) + forEach() 제공
+
+        console.dir(objs);
+        for(const obj of objs){
+            console.dir(obj);
+        }
+        
+        // 2
+        const obj2 = document.querySelectorAll('p');
+
+        console.dir(obj2);
+
+        obj2.forEach(function(elm, index){
+            console.dir(elm)
+        })
+
+</script>
+</body>
+</html>
